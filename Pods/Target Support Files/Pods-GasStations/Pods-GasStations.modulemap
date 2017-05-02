@@ -1,0 +1,6 @@
+framework module Pods_GasStations {
+  umbrella header "Pods-GasStations-umbrella.h"
+
+  export *
+  module * { export * }
+}

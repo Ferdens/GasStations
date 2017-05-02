@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="95e-YU-4EV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="krp-7c-ULz">
+            <objects>
+                <navigationController id="95e-YU-4EV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2uC-IR-aIw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OCU-4M-qOa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8p-El-jSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-833" y="-92"/>
+        </scene>
+        <!--FuelBuddy-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GasStations" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="FuelBuddy" id="JsT-BQ-GuY"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="ddR-5D-HgP" id="ssX-hp-ki3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ddR-5D-HgP">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="UIp-CJ-kZB"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="AKq-lH-mGa"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="URA-jW-rKa"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="DHM-nr-T1n"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-106.40000000000001" y="-92.203898050974516"/>
+        </scene>
+    </scenes>
+</document>

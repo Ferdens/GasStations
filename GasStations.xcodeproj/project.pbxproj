@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		463EB6D01EB8A9F000FC3D6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463EB6CF1EB8A9F000FC3D6D /* AppDelegate.swift */; };
+		463EB6D21EB8A9F000FC3D6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463EB6D11EB8A9F000FC3D6D /* ViewController.swift */; };
+		463EB6D51EB8A9F000FC3D6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463EB6D31EB8A9F000FC3D6D /* Main.storyboard */; };
+		463EB6D71EB8A9F000FC3D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463EB6D61EB8A9F000FC3D6D /* Assets.xcassets */; };
+		463EB6DA1EB8A9F000FC3D6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463EB6D81EB8A9F000FC3D6D /* LaunchScreen.storyboard */; };
+		463EB6E21EB8AB5200FC3D6D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 463EB6E11EB8AB5200FC3D6D /* Podfile */; };
+		463EB6E41EB8C0FA00FC3D6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463EB6E31EB8C0FA00FC3D6D /* Extensions.swift */; };
+		C7115760313554FED8C8D6E4 /* Pods_GasStations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F52223EF3BF2E34A6427478 /* Pods_GasStations.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0F52223EF3BF2E34A6427478 /* Pods_GasStations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GasStations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B9E2AC3CADA10225E0E827 /* Pods-GasStations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasStations.release.xcconfig"; path = "Pods/Target Support Files/Pods-GasStations/Pods-GasStations.release.xcconfig"; sourceTree = "<group>"; };
+		463EB6CC1EB8A9F000FC3D6D /* GasStations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasStations.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		463EB6CF1EB8A9F000FC3D6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		463EB6D11EB8A9F000FC3D6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		463EB6D41EB8A9F000FC3D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		463EB6D61EB8A9F000FC3D6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		463EB6D91EB8A9F000FC3D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		463EB6DB1EB8A9F000FC3D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		463EB6E11EB8AB5200FC3D6D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		463EB6E31EB8C0FA00FC3D6D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5196CC6D04E0BAFD4FF7CFDF /* Pods-GasStations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasStations.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GasStations/Pods-GasStations.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		463EB6C91EB8A9F000FC3D6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7115760313554FED8C8D6E4 /* Pods_GasStations.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E6260F1945FAA8386D8B810 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5196CC6D04E0BAFD4FF7CFDF /* Pods-GasStations.debug.xcconfig */,
+				10B9E2AC3CADA10225E0E827 /* Pods-GasStations.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		463EB6C31EB8A9F000FC3D6D = {
+			isa = PBXGroup;
+			children = (
+				463EB6E11EB8AB5200FC3D6D /* Podfile */,
+				463EB6CE1EB8A9F000FC3D6D /* GasStations */,
+				463EB6CD1EB8A9F000FC3D6D /* Products */,
+				1E6260F1945FAA8386D8B810 /* Pods */,
+				51B4A2E5999C4B8AB8F37043 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		463EB6CD1EB8A9F000FC3D6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				463EB6CC1EB8A9F000FC3D6D /* GasStations.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		463EB6CE1EB8A9F000FC3D6D /* GasStations */ = {
+			isa = PBXGroup;
+			children = (
+				463EB6CF1EB8A9F000FC3D6D /* AppDelegate.swift */,
+				463EB6E31EB8C0FA00FC3D6D /* Extensions.swift */,
+				463EB6D11EB8A9F000FC3D6D /* ViewController.swift */,
+				463EB6D31EB8A9F000FC3D6D /* Main.storyboard */,
+				463EB6D61EB8A9F000FC3D6D /* Assets.xcassets */,
+				463EB6D81EB8A9F000FC3D6D /* LaunchScreen.storyboard */,
+				463EB6DB1EB8A9F000FC3D6D /* Info.plist */,
+			);
+			path = GasStations;
+			sourceTree = "<group>";
+		};
+		51B4A2E5999C4B8AB8F37043 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F52223EF3BF2E34A6427478 /* Pods_GasStations.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		463EB6CB1EB8A9F000FC3D6D /* GasStations */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 463EB6DE1EB8A9F000FC3D6D /* Build configuration list for PBXNativeTarget "GasStations" */;
+			buildPhases = (
+				0ED12DD75DEFAA0A4D6A6A7C /* [CP] Check Pods Manifest.lock */,
+				463EB6C81EB8A9F000FC3D6D /* Sources */,
+				463EB6C91EB8A9F000FC3D6D /* Frameworks */,
+				463EB6CA1EB8A9F000FC3D6D /* Resources */,
+				B0452B3C3CAFDF9B22B33DB0 /* [CP] Embed Pods Frameworks */,
+				81EBA3589815DAD49EA34DAF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GasStations;
+			productName = GasStations;
+			productReference = 463EB6CC1EB8A9F000FC3D6D /* GasStations.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		463EB6C41EB8A9F000FC3D6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "anton Shepetuha";
+				TargetAttributes = {
+					463EB6CB1EB8A9F000FC3D6D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 26MYWBDR6Z;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 463EB6C71EB8A9F000FC3D6D /* Build configuration list for PBXProject "GasStations" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 463EB6C31EB8A9F000FC3D6D;
+			productRefGroup = 463EB6CD1EB8A9F000FC3D6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				463EB6CB1EB8A9F000FC3D6D /* GasStations */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		463EB6CA1EB8A9F000FC3D6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				463EB6DA1EB8A9F000FC3D6D /* LaunchScreen.storyboard in Resources */,
+				463EB6D71EB8A9F000FC3D6D /* Assets.xcassets in Resources */,
+				463EB6E21EB8AB5200FC3D6D /* Podfile in Resources */,
+				463EB6D51EB8A9F000FC3D6D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0ED12DD75DEFAA0A4D6A6A7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		81EBA3589815DAD49EA34DAF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GasStations/Pods-GasStations-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0452B3C3CAFDF9B22B33DB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GasStations/Pods-GasStations-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		463EB6C81EB8A9F000FC3D6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				463EB6D21EB8A9F000FC3D6D /* ViewController.swift in Sources */,
+				463EB6E41EB8C0FA00FC3D6D /* Extensions.swift in Sources */,
+				463EB6D01EB8A9F000FC3D6D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		463EB6D31EB8A9F000FC3D6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				463EB6D41EB8A9F000FC3D6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		463EB6D81EB8A9F000FC3D6D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				463EB6D91EB8A9F000FC3D6D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		463EB6DC1EB8A9F000FC3D6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		463EB6DD1EB8A9F000FC3D6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		463EB6DF1EB8A9F000FC3D6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5196CC6D04E0BAFD4FF7CFDF /* Pods-GasStations.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 26MYWBDR6Z;
+				INFOPLIST_FILE = GasStations/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Anton.GasStations;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		463EB6E01EB8A9F000FC3D6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10B9E2AC3CADA10225E0E827 /* Pods-GasStations.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 26MYWBDR6Z;
+				INFOPLIST_FILE = GasStations/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Anton.GasStations;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		463EB6C71EB8A9F000FC3D6D /* Build configuration list for PBXProject "GasStations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				463EB6DC1EB8A9F000FC3D6D /* Debug */,
+				463EB6DD1EB8A9F000FC3D6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		463EB6DE1EB8A9F000FC3D6D /* Build configuration list for PBXNativeTarget "GasStations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				463EB6DF1EB8A9F000FC3D6D /* Debug */,
+				463EB6E01EB8A9F000FC3D6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 463EB6C41EB8A9F000FC3D6D /* Project object */;
+}
