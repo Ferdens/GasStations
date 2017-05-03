@@ -49,11 +49,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-80-yX6">
-                                <rect key="frame" x="131" y="478" width="112.5" height="33.5"/>
+                                <rect key="frame" x="131" y="491" width="112.5" height="33.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qL-83-77Y">
                                         <rect key="frame" x="0.0" y="0.0" width="112.5" height="30"/>
                                         <state key="normal" image="Combined Shape2"/>
+                                        <connections>
+                                            <action selector="openMore:" destination="tXj-iC-QyY" eventType="touchUpInside" id="aLK-cP-pDe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -65,16 +68,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MqL-LH-46o">
-                                <rect key="frame" x="0.0" y="501.5" width="375" height="66.5"/>
+                                <rect key="frame" x="0.0" y="514.5" width="375" height="53.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3h-oe-zwl">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="66.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="53.5"/>
                                         <state key="normal" title="По расстоянию">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-7n-ShE">
-                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="66.5"/>
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="53.5"/>
                                         <state key="normal" title="По стоимости">
                                             <color key="titleColor" red="0.46663045883178711" green="0.46668773889541626" blue="0.46660411357879639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -92,19 +95,23 @@
                                     <constraint firstItem="4VM-7n-ShE" firstAttribute="top" secondItem="MqL-LH-46o" secondAttribute="top" id="ujh-fL-h0C"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zna-2H-ZbL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zna-2H-ZbL">
                                 <rect key="frame" x="0.0" y="568" width="375" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="ZrN-9m-REZ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="72" id="ZrN-9m-REZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZrN-9m-REZ" id="3wf-XF-fCh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tXj-iC-QyY" id="K7o-cP-cRK"/>
+                                    <outlet property="delegate" destination="tXj-iC-QyY" id="QKx-JV-wpv"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,7 +128,7 @@
                             <constraint firstAttribute="trailing" secondItem="MqL-LH-46o" secondAttribute="trailing" id="g9R-D6-1BY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t5e-9y-BVo" secondAttribute="trailing" constant="-16" id="hZ2-SN-Gip"/>
                             <constraint firstItem="Zna-2H-ZbL" firstAttribute="leading" secondItem="t5e-9y-BVo" secondAttribute="leading" id="i4C-zZ-7Xq"/>
-                            <constraint firstItem="MqL-LH-46o" firstAttribute="height" secondItem="OeT-xw-ZBb" secondAttribute="height" multiplier="0.1" id="iNY-OT-Ehv"/>
+                            <constraint firstItem="MqL-LH-46o" firstAttribute="height" secondItem="OeT-xw-ZBb" secondAttribute="height" multiplier="0.08" id="iNY-OT-Ehv"/>
                             <constraint firstItem="MqL-LH-46o" firstAttribute="leading" secondItem="OeT-xw-ZBb" secondAttribute="leading" id="lQD-nl-QOI"/>
                             <constraint firstItem="t5e-9y-BVo" firstAttribute="top" secondItem="277-U3-L9C" secondAttribute="bottom" constant="-20" id="lqD-gE-D1C"/>
                             <constraint firstItem="Zna-2H-ZbL" firstAttribute="top" secondItem="t5e-9y-BVo" secondAttribute="bottom" id="ydf-xM-IWz"/>
@@ -131,8 +138,10 @@
                     <navigationItem key="navigationItem" title="Fuel Buddy" id="xdW-id-4y1"/>
                     <connections>
                         <outlet property="aboveTableView" destination="VBx-80-yX6" id="TJv-xx-Sj7"/>
+                        <outlet property="mapView" destination="t5e-9y-BVo" id="2j0-jo-SAi"/>
                         <outlet property="moreStationsinfoButton" destination="7qL-83-77Y" id="AcV-o1-sRF"/>
-                        <outlet property="test" destination="t5e-9y-BVo" id="1Gh-Yk-dpS"/>
+                        <outlet property="sortView" destination="MqL-LH-46o" id="gQh-zZ-Vzu"/>
+                        <outlet property="tableView" destination="Zna-2H-ZbL" id="aUq-b0-ByZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Yl-q7-8vX" userLabel="First Responder" sceneMemberID="firstResponder"/>

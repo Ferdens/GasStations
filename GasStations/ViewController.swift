@@ -13,15 +13,25 @@ class ViewController: UIViewController {
     
     var gradientView = UIView()
     
-    @IBOutlet weak var aboveTableView: UIView!
-    @IBOutlet weak var moreStationsinfoButton: UIButton!
+    @IBOutlet weak var sortView: UIView!
+    @IBOutlet weak var tableView                : UITableView!
+    @IBOutlet weak var aboveTableView           : UIView!
+    @IBOutlet weak var moreStationsinfoButton   : UIButton!
+    @IBOutlet weak var mapView                  : UIView!
     
-    @IBOutlet weak var test: UIView!
+    var defaultTableViewFrame                   : CGRect?
+    var defaultAboveTableViewFrame              : CGRect?
+    var defaultSortViewFrame                    : CGRect?
+    var moreInfoIsOpened                        = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        defaultTableViewFrame        = tableView.frame
+        defaultAboveTableViewFrame   = aboveTableView.frame
+        defaultSortViewFrame         = sortView.frame
+        
         setBarButtons()
         configurateMap()
-        
         aboveTableView.layer.cornerRadius = 10
         aboveTableView.addShadow(opacity: 3, radius: 2)
         moreStationsinfoButton.layer.cornerRadius = 10
@@ -39,24 +49,18 @@ class ViewController: UIViewController {
         
         self.view.addSubview(searchBar)
     }
-    func settings(){
-        
-    }
-    func profile() {
-        
-    }
     
     func configurateMap() {
         let camera = GMSCameraPosition.camera(withLatitude: 55.75, longitude: 37.62, zoom: 11.0)
-        let mapView = GMSMapView.map(withFrame: test.frame, camera: camera)
-        mapView.isMyLocationEnabled = true
-        test.addSubview(mapView)
+        let mapViewGoogle = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
+        mapViewGoogle.isMyLocationEnabled = true
+        mapView.addSubview(mapViewGoogle)
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: 55.75, longitude: 37.62)
         marker.title = "Moscow"
         marker.snippet = "Russia"
-        marker.map = mapView
+        marker.map = mapViewGoogle
     }
     
     func displayView(){
@@ -75,10 +79,7 @@ class ViewController: UIViewController {
         gradientView.applyGradient(colors,[0.2,0.3,0.5,0.7,0.8,0.9,1])
         self.view.addSubview(gradientView)
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
-    }
+   
     func setBarButtons() {
         let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settings))
         settingsButton.tintColor = UIColor(red: 34/255, green: 163/255, blue: 236/255, alpha: 1)
@@ -90,9 +91,54 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK: Actions
+    
+    @IBAction func openMore(_ sender: UIButton) {
+        if moreInfoIsOpened {
+            UIView.animate(withDuration: 0.3, animations: {
+                
+            })
+            UIView.animate(withDuration: 0.3, animations: {
+                self.aboveTableView.frame         = self.defaultAboveTableViewFrame!
+                self.tableView.frame              = self.defaultTableViewFrame!
+                self.sortView.frame               = self.defaultSortViewFrame!
+            }, completion: { (success) in
+                self.moreInfoIsOpened = false
+            })
+        } else {
+            UIView.animate(withDuration: 0.3, animations: {
+                let slideConstant : CGFloat = (72*3)
+                self.aboveTableView.frame.origin.y -= slideConstant
+                self.sortView.frame.origin.y       -= slideConstant
+                self.tableView.frame = CGRect(x: 0, y: self.tableView.frame.origin.y - slideConstant, width: self.tableView.frame.width, height: self.tableView.frame.height + slideConstant)
+            }, completion: { (success) in
+                self.moreInfoIsOpened = true
+            })
+        }
+    }
+    
+    
+    func settings(){
+        
+    }
+    func profile() {
+        
+    }
     
     
     
     
+}
+
+extension ViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.backgroundColor = UIColor.red
+        return cell
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
 }
 
