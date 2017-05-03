@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +15,7 @@
         <scene sceneID="krp-7c-ULz">
             <objects>
                 <navigationController id="95e-YU-4EV" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2uC-IR-aIw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2uC-IR-aIw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -23,33 +25,122 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OCU-4M-qOa"/>
+                        <segue destination="tXj-iC-QyY" kind="relationship" relationship="rootViewController" id="KQy-hO-bmY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8p-El-jSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-833" y="-92"/>
         </scene>
-        <!--FuelBuddy-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Fuel Buddy-->
+        <scene sceneID="XZR-jG-CCB">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GasStations" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="FuelBuddy" id="JsT-BQ-GuY"/>
+                <viewController id="tXj-iC-QyY" customClass="ViewController" customModule="GasStations" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="277-U3-L9C"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Jp-oV-iHs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OeT-xw-ZBb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-9y-BVo">
+                                <rect key="frame" x="0.0" y="44" width="375" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-80-yX6">
+                                <rect key="frame" x="131" y="478" width="112.5" height="33.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qL-83-77Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="30"/>
+                                        <state key="normal" image="Combined Shape2"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="7qL-83-77Y" firstAttribute="height" secondItem="VBx-80-yX6" secondAttribute="height" multiplier="0.9" id="0PF-LS-zVa"/>
+                                    <constraint firstItem="7qL-83-77Y" firstAttribute="centerX" secondItem="VBx-80-yX6" secondAttribute="centerX" id="IKm-cc-F4A"/>
+                                    <constraint firstItem="7qL-83-77Y" firstAttribute="width" secondItem="VBx-80-yX6" secondAttribute="width" id="XnV-bu-2Zr"/>
+                                    <constraint firstItem="7qL-83-77Y" firstAttribute="top" secondItem="VBx-80-yX6" secondAttribute="top" id="Xpi-PZ-2Qd"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MqL-LH-46o">
+                                <rect key="frame" x="0.0" y="501.5" width="375" height="66.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3h-oe-zwl">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="66.5"/>
+                                        <state key="normal" title="По расстоянию">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-7n-ShE">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="66.5"/>
+                                        <state key="normal" title="По стоимости">
+                                            <color key="titleColor" red="0.46663045883178711" green="0.46668773889541626" blue="0.46660411357879639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.21958878636360168" green="0.21961894631385803" blue="0.21957489848136902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="l3h-oe-zwl" firstAttribute="top" secondItem="MqL-LH-46o" secondAttribute="top" id="AS2-vq-7Ab"/>
+                                    <constraint firstItem="4VM-7n-ShE" firstAttribute="leading" secondItem="l3h-oe-zwl" secondAttribute="trailing" id="DXn-Xf-c3T"/>
+                                    <constraint firstAttribute="trailing" secondItem="4VM-7n-ShE" secondAttribute="trailing" id="QMJ-bw-vWA"/>
+                                    <constraint firstAttribute="bottom" secondItem="l3h-oe-zwl" secondAttribute="bottom" id="S8m-TN-cCu"/>
+                                    <constraint firstItem="l3h-oe-zwl" firstAttribute="width" secondItem="MqL-LH-46o" secondAttribute="width" multiplier="0.5" id="X1m-pF-B6v"/>
+                                    <constraint firstItem="l3h-oe-zwl" firstAttribute="leading" secondItem="MqL-LH-46o" secondAttribute="leading" id="ffP-11-rwU"/>
+                                    <constraint firstAttribute="bottom" secondItem="4VM-7n-ShE" secondAttribute="bottom" id="mWm-uq-n70"/>
+                                    <constraint firstItem="4VM-7n-ShE" firstAttribute="top" secondItem="MqL-LH-46o" secondAttribute="top" id="ujh-fL-h0C"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zna-2H-ZbL">
+                                <rect key="frame" x="0.0" y="568" width="375" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="ZrN-9m-REZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZrN-9m-REZ" id="3wf-XF-fCh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VBx-80-yX6" firstAttribute="centerX" secondItem="OeT-xw-ZBb" secondAttribute="centerX" id="8Z3-hb-ULp"/>
+                            <constraint firstItem="t5e-9y-BVo" firstAttribute="leading" secondItem="OeT-xw-ZBb" secondAttribute="leadingMargin" constant="-16" id="DFN-4O-ath"/>
+                            <constraint firstItem="Zna-2H-ZbL" firstAttribute="trailing" secondItem="t5e-9y-BVo" secondAttribute="trailing" id="Dzv-s1-5qX"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Zna-2H-ZbL" secondAttribute="bottom" constant="-1" id="FO3-xv-Kha"/>
+                            <constraint firstItem="Zna-2H-ZbL" firstAttribute="height" secondItem="OeT-xw-ZBb" secondAttribute="height" multiplier="0.15" id="G9E-yw-WL8"/>
+                            <constraint firstItem="Zna-2H-ZbL" firstAttribute="top" secondItem="MqL-LH-46o" secondAttribute="bottom" id="LyE-Xk-hip"/>
+                            <constraint firstItem="Zna-2H-ZbL" firstAttribute="top" secondItem="t5e-9y-BVo" secondAttribute="bottom" id="OFD-My-8VZ"/>
+                            <constraint firstItem="VBx-80-yX6" firstAttribute="width" secondItem="OeT-xw-ZBb" secondAttribute="width" multiplier="0.3" id="V8s-ST-mDL"/>
+                            <constraint firstItem="MqL-LH-46o" firstAttribute="top" secondItem="VBx-80-yX6" secondAttribute="bottom" constant="-10" id="Wsn-P5-Sw5"/>
+                            <constraint firstAttribute="trailing" secondItem="MqL-LH-46o" secondAttribute="trailing" id="g9R-D6-1BY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t5e-9y-BVo" secondAttribute="trailing" constant="-16" id="hZ2-SN-Gip"/>
+                            <constraint firstItem="Zna-2H-ZbL" firstAttribute="leading" secondItem="t5e-9y-BVo" secondAttribute="leading" id="i4C-zZ-7Xq"/>
+                            <constraint firstItem="MqL-LH-46o" firstAttribute="height" secondItem="OeT-xw-ZBb" secondAttribute="height" multiplier="0.1" id="iNY-OT-Ehv"/>
+                            <constraint firstItem="MqL-LH-46o" firstAttribute="leading" secondItem="OeT-xw-ZBb" secondAttribute="leading" id="lQD-nl-QOI"/>
+                            <constraint firstItem="t5e-9y-BVo" firstAttribute="top" secondItem="277-U3-L9C" secondAttribute="bottom" constant="-20" id="lqD-gE-D1C"/>
+                            <constraint firstItem="Zna-2H-ZbL" firstAttribute="top" secondItem="t5e-9y-BVo" secondAttribute="bottom" id="ydf-xM-IWz"/>
+                            <constraint firstItem="VBx-80-yX6" firstAttribute="height" secondItem="OeT-xw-ZBb" secondAttribute="height" multiplier="0.05" id="zus-p0-hU3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Fuel Buddy" id="xdW-id-4y1"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="ddR-5D-HgP" id="ssX-hp-ki3"/>
+                        <outlet property="aboveTableView" destination="VBx-80-yX6" id="TJv-xx-Sj7"/>
+                        <outlet property="moreStationsinfoButton" destination="7qL-83-77Y" id="AcV-o1-sRF"/>
+                        <outlet property="test" destination="t5e-9y-BVo" id="1Gh-Yk-dpS"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="ddR-5D-HgP">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="UIp-CJ-kZB"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="AKq-lH-mGa"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="URA-jW-rKa"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="DHM-nr-T1n"/>
-                    </connections>
-                </searchDisplayController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Yl-q7-8vX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-106.40000000000001" y="-92.203898050974516"/>
+            <point key="canvasLocation" x="-63.200000000000003" y="-103.89805097451276"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Combined Shape2" width="63" height="26"/>
+    </resources>
 </document>

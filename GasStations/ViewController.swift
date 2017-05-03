@@ -13,11 +13,21 @@ class ViewController: UIViewController {
     
     var gradientView = UIView()
     
+    @IBOutlet weak var aboveTableView: UIView!
+    @IBOutlet weak var moreStationsinfoButton: UIButton!
+    
+    @IBOutlet weak var test: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setBarButtons()
-
+        configurateMap()
+        
+        aboveTableView.layer.cornerRadius = 10
+        aboveTableView.addShadow(opacity: 3, radius: 2)
+        moreStationsinfoButton.layer.cornerRadius = 10
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         displayView()
         setSearchView()
@@ -34,6 +44,19 @@ class ViewController: UIViewController {
     }
     func profile() {
         
+    }
+    
+    func configurateMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: 55.75, longitude: 37.62, zoom: 11.0)
+        let mapView = GMSMapView.map(withFrame: test.frame, camera: camera)
+        mapView.isMyLocationEnabled = true
+        test.addSubview(mapView)
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: 55.75, longitude: 37.62)
+        marker.title = "Moscow"
+        marker.snippet = "Russia"
+        marker.map = mapView
     }
     
     func displayView(){
@@ -69,20 +92,7 @@ class ViewController: UIViewController {
     
     
     
-    override func loadView() {
-        
-        let camera = GMSCameraPosition.camera(withLatitude: 55.75, longitude: 37.62, zoom: 11.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        mapView.isMyLocationEnabled = true
-        view = mapView
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 55.75, longitude: 37.62)
-        marker.title = "Moscow"
-        marker.snippet = "Russia"
-        marker.map = mapView
-    }
+    
     
 }
 
