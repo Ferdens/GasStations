@@ -17,7 +17,9 @@ extension UIView {
         var cgColors = [CGColor]()
         for color in colors {
             cgColors.append(color.cgColor)
+        
         }
+        
         gradient.colors = cgColors
         gradient.locations = locations
         gradient.startPoint = CGPoint(x: 0, y: 0)
@@ -33,6 +35,13 @@ extension UIView {
         self.layer.shadowOpacity = opacity
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowRadius = radius
+    }
+}
+
+extension UIColor {
+    open class var noActiveButton: UIColor { get {
+        return UIColor.init(red: 119 / 255, green: 119 / 255, blue: 119 / 255, alpha: 1)
+        }
     }
 }
 

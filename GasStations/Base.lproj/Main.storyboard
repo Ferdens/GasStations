@@ -45,11 +45,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-9y-BVo">
-                                <rect key="frame" x="0.0" y="44" width="375" height="524"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="537.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-80-yX6">
-                                <rect key="frame" x="131" y="491" width="112.5" height="33.5"/>
+                                <rect key="frame" x="131" y="504.5" width="112.5" height="33.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qL-83-77Y">
                                         <rect key="frame" x="0.0" y="0.0" width="112.5" height="30"/>
@@ -68,19 +68,25 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MqL-LH-46o">
-                                <rect key="frame" x="0.0" y="514.5" width="375" height="53.5"/>
+                                <rect key="frame" x="0.0" y="528" width="375" height="53.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3h-oe-zwl">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="53.5"/>
                                         <state key="normal" title="По расстоянию">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="byRange:" destination="tXj-iC-QyY" eventType="touchUpInside" id="27I-dS-jDm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-7n-ShE">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="53.5"/>
                                         <state key="normal" title="По стоимости">
                                             <color key="titleColor" red="0.46663045883178711" green="0.46668773889541626" blue="0.46660411357879639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="byPrice:" destination="tXj-iC-QyY" eventType="touchUpInside" id="PjD-NQ-J0u"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.21958878636360168" green="0.21961894631385803" blue="0.21957489848136902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,15 +101,15 @@
                                     <constraint firstItem="4VM-7n-ShE" firstAttribute="top" secondItem="MqL-LH-46o" secondAttribute="top" id="ujh-fL-h0C"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zna-2H-ZbL">
-                                <rect key="frame" x="0.0" y="568" width="375" height="100"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zna-2H-ZbL">
+                                <rect key="frame" x="0.0" y="581.5" width="375" height="86.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="72" id="ZrN-9m-REZ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="73" id="ZrN-9m-REZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZrN-9m-REZ" id="3wf-XF-fCh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -120,7 +126,7 @@
                             <constraint firstItem="t5e-9y-BVo" firstAttribute="leading" secondItem="OeT-xw-ZBb" secondAttribute="leadingMargin" constant="-16" id="DFN-4O-ath"/>
                             <constraint firstItem="Zna-2H-ZbL" firstAttribute="trailing" secondItem="t5e-9y-BVo" secondAttribute="trailing" id="Dzv-s1-5qX"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Zna-2H-ZbL" secondAttribute="bottom" constant="-1" id="FO3-xv-Kha"/>
-                            <constraint firstItem="Zna-2H-ZbL" firstAttribute="height" secondItem="OeT-xw-ZBb" secondAttribute="height" multiplier="0.15" id="G9E-yw-WL8"/>
+                            <constraint firstItem="Zna-2H-ZbL" firstAttribute="height" secondItem="OeT-xw-ZBb" secondAttribute="height" multiplier="0.13" id="G9E-yw-WL8"/>
                             <constraint firstItem="Zna-2H-ZbL" firstAttribute="top" secondItem="MqL-LH-46o" secondAttribute="bottom" id="LyE-Xk-hip"/>
                             <constraint firstItem="Zna-2H-ZbL" firstAttribute="top" secondItem="t5e-9y-BVo" secondAttribute="bottom" id="OFD-My-8VZ"/>
                             <constraint firstItem="VBx-80-yX6" firstAttribute="width" secondItem="OeT-xw-ZBb" secondAttribute="width" multiplier="0.3" id="V8s-ST-mDL"/>
@@ -140,6 +146,8 @@
                         <outlet property="aboveTableView" destination="VBx-80-yX6" id="TJv-xx-Sj7"/>
                         <outlet property="mapView" destination="t5e-9y-BVo" id="2j0-jo-SAi"/>
                         <outlet property="moreStationsinfoButton" destination="7qL-83-77Y" id="AcV-o1-sRF"/>
+                        <outlet property="sortByPrice" destination="4VM-7n-ShE" id="vib-hH-moA"/>
+                        <outlet property="sortByRange" destination="l3h-oe-zwl" id="bWX-G9-cgo"/>
                         <outlet property="sortView" destination="MqL-LH-46o" id="gQh-zZ-Vzu"/>
                         <outlet property="tableView" destination="Zna-2H-ZbL" id="aUq-b0-ByZ"/>
                     </connections>

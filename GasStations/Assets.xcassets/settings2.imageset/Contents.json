@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "profile2-513.pdf",
+      "filename" : "settings.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "profile2-514.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "profile2-515.pdf",
       "scale" : "3x"
     }
   ],
