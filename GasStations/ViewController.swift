@@ -49,31 +49,32 @@ class ViewController: UIViewController {
     }
     
     func setSearchView(){
-        let searchBarView = UIView(frame: CGRect(x: self.view.bounds.width * 0.05, y: gradientView.frame.maxY - 20, width: self.view.frame.width * 0.9, height: view.frame.height * 0.065))
+        let searchBarHeight = view.frame.height * 0.065
+        let searchBarView = UIView(frame: CGRect(x: self.view.bounds.width * 0.05, y: gradientView.frame.maxY - searchBarHeight/2, width: self.view.frame.width * 0.9, height:searchBarHeight ))
         searchBarView.backgroundColor = UIColor.white
         searchBarView.layer.cornerRadius = 4
         searchBarView.addShadow(opacity: 1, radius: 1)
         
         //TEXTFIELD
-        let textField = UITextField(frame: CGRect(x: view.bounds.width * 0.2, y: gradientView.frame.maxY - 20, width: view.bounds.width * 0.6, height: searchBarView.bounds.height))
+        let textField = UITextField(frame: CGRect(x: view.bounds.width * 0.2, y: gradientView.frame.maxY - searchBarHeight/2, width: view.bounds.width * 0.6, height: searchBarView.bounds.height))
         textField.placeholder = gasSearchTextPlaceHolder
         textField.textAlignment = .left
         textField.font = UIFont.italicSystemFont(ofSize: 14)
 
         
-        let buttonsHeight = searchBarView.bounds.height * 0.6
-        let leftButton = UIButton(frame: CGRect(x: view.bounds.width * 0.07, y: gradientView.frame.maxY - buttonsHeight/2 , width: view.bounds.width * 0.1, height:buttonsHeight))
+        let buttonsHeight = searchBarView.bounds.height
+        let leftButton = UIButton(frame: CGRect(x: view.bounds.width * 0.05, y: gradientView.frame.maxY - buttonsHeight/2 , width: view.bounds.width * 0.1, height:buttonsHeight))
 //        leftButton.backgroundColor = UIColor.yellow
-        leftButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        leftButton.imageView?.contentMode = UIViewContentMode.center
         leftButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
 //        leftButton.setImage(#imageLiteral(resourceName: "pinPressed"), for: .highlighted)
         
-        let rightButtonHeight = searchBarView.bounds.height 
+        let rightButtonHeight = searchBarView.bounds.height * 0.9
         let rightButton = UIButton(frame: CGRect(x: view.bounds.width * 0.83, y: gradientView.frame.maxY - rightButtonHeight/2 , width: view.bounds.width * 0.1, height:rightButtonHeight))
-//        rightButton.backgroundColor = UIColor.green
-        rightButton.imageView?.contentMode = .scaleAspectFit
-        rightButton.setImage(#imageLiteral(resourceName: "plusImage"), for: .normal)
-//        rightButton.
+
+        rightButton.imageView?.contentMode = .center
+        rightButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
+
         self.view.addSubview(searchBarView)
         self.view.addSubview(leftButton)
         self.view.addSubview(rightButton)
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        gradientView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height * 0.135)
+        gradientView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height * 0.128)
         var colors = [UIColor]()
         colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.95))
         colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.95))
@@ -111,6 +112,7 @@ class ViewController: UIViewController {
     
     func setBarButtons() {
         let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settings))
+        
         settingsButton.tintColor = UIColor(red: 34/255, green: 163/255, blue: 236/255, alpha: 1)
         let profileButton = UIBarButtonItem(image: #imageLiteral(resourceName: "profile"), style: .plain, target: self, action: #selector(profile))
         profileButton.tintColor = UIColor.white
@@ -134,7 +136,7 @@ class ViewController: UIViewController {
     }
     func tableViewBigerSize() {
         UIView.animate(withDuration: 0.3, animations: {
-            let slideConstant : CGFloat = (73*4)
+            let slideConstant : CGFloat = (70*3)
             self.aboveTableView.frame.origin.y -= slideConstant
             self.sortView.frame.origin.y       -= slideConstant
             self.tableView.frame = CGRect(x: 0, y: self.tableView.frame.origin.y - slideConstant, width: self.tableView.frame.width, height: self.tableView.frame.height + slideConstant)
@@ -181,7 +183,6 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.backgroundColor = UIColor.red
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
