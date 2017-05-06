@@ -40,10 +40,20 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         defaultSortViewFrame         = sortView.frame
         setBarButtons()
         configurateMap()
+        
+        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        //        self.view.addGestureRecognizer(tapGesture)
+        
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         self.aboveTableView.addGestureRecognizer(gestureRecognizer)
         
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.sortView.addGestureRecognizer(swipeRight)
         
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.sortView.addGestureRecognizer(swipeLeft)
         
         smallCornerView = UIView(frame: CGRect.init(x: sortByRange.frame.midX, y: sortByRange.frame.maxY - 5, width: 10, height: 10))
         smallCornerView.backgroundColor = sortByRange.backgroundColor
@@ -130,8 +140,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         mapViewGoogle = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
         mapViewGoogle.isMyLocationEnabled = true
         mapViewGoogle.delegate = self
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
-        self.mapViewGoogle.addGestureRecognizer(tapGesture)
         mapView.addSubview(mapViewGoogle)
     }
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
@@ -194,6 +202,59 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         moreStationsinfoButton.layer.cornerRadius = 10
     }
     
+    func respondToSwipeGesture(gesture: UIGestureRecognizer)
+    {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer
+        {
+            switch swipeGesture.direction
+            {
+            case UISwipeGestureRecognizerDirection.right:
+                //write your logic for right swipe
+                sortByPrice.setTitleColor(UIColor.white, for: .normal)
+                sortByRange.setTitleColor(UIColor.noActiveButton, for: .normal)
+                UIView.animate(withDuration: 0.4) {
+                    self.smallCornerView.center = CGPoint(x: self.sortByPrice.frame.midX, y: self.smallCornerView.center.y)
+                }
+                var stationTemp = Station()
+                let count = gasStations.count - 1
+                for j in 0..<count {
+                    for i in 0..<count - j{
+                        if gasStations[i].price > gasStations[i+1].price {
+                            stationTemp = gasStations[i]
+                            gasStations[i] = gasStations[i+1]
+                            gasStations[i+1] = stationTemp
+                        }
+                    }
+                }
+                self.tableView.reloadData()
+                
+            case UISwipeGestureRecognizerDirection.left:
+                //write your logic for left swipe
+                sortByRange.setTitleColor(UIColor.white, for: .normal)
+                sortByPrice.setTitleColor(UIColor.noActiveButton, for: .normal)
+                UIView.animate(withDuration: 0.4) {
+                    self.smallCornerView.center = CGPoint(x: self.sortByRange.frame.midX, y: self.smallCornerView.center.y)
+                }
+                var stationTemp = Station()
+                let count = gasStations.count - 1
+                for j in 0..<count {
+                    for i in 0..<count - j{
+                        if gasStations[i].distanseLength > gasStations[i+1].distanseLength {
+                            stationTemp = gasStations[i]
+                            gasStations[i] = gasStations[i+1]
+                            gasStations[i+1] = stationTemp
+                        }
+                    }
+                }
+                
+                self.tableView.reloadData()
+                
+            default:
+                break
+            }
+        }
+    }
+    
     func setBarButtons() {
         let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settings))
         settingsButton.tintColor = UIColor.init(red: 0, green: 137/255, blue: 178/255, alpha: 1)
@@ -217,39 +278,46 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     //MARK:Sort methods
     
     @IBAction func byRange(_ sender: UIButton) {
-        sender.setTitleColor(UIColor.white, for: .normal)
+        sortByRange.setTitleColor(UIColor.white, for: .normal)
         sortByPrice.setTitleColor(UIColor.noActiveButton, for: .normal)
         UIView.animate(withDuration: 0.4) {
             self.smallCornerView.center = CGPoint(x: self.sortByRange.frame.midX, y: self.smallCornerView.center.y)
         }
         var stationTemp = Station()
         let count = gasStations.count - 1
-        for i in 0..<count{
-            if gasStations[i].distanseLength > gasStations[i+1].distanseLength {
-                stationTemp = gasStations[i]
-                gasStations[i] = gasStations[i+1]
-                gasStations[i+1] = stationTemp
+        for j in 0..<count {
+            for i in 0..<count - j{
+                if gasStations[i].distanseLength > gasStations[i+1].distanseLength {
+                    stationTemp = gasStations[i]
+                    gasStations[i] = gasStations[i+1]
+                    gasStations[i+1] = stationTemp
+                }
             }
         }
+        
         self.tableView.reloadData()
-    }
+
+           }
     
     @IBAction func byPrice(_ sender: UIButton) {
-        sender.setTitleColor(UIColor.white, for: .normal)
+        sortByPrice.setTitleColor(UIColor.white, for: .normal)
         sortByRange.setTitleColor(UIColor.noActiveButton, for: .normal)
         UIView.animate(withDuration: 0.4) {
             self.smallCornerView.center = CGPoint(x: self.sortByPrice.frame.midX, y: self.smallCornerView.center.y)
         }
         var stationTemp = Station()
         let count = gasStations.count - 1
-        for i in 0..<count{
-            if gasStations[i].price > gasStations[i+1].price {
-                stationTemp = gasStations[i]
-                gasStations[i] = gasStations[i+1]
-                gasStations[i+1] = stationTemp
+        for j in 0..<count {
+            for i in 0..<count - j{
+                if gasStations[i].price > gasStations[i+1].price {
+                    stationTemp = gasStations[i]
+                    gasStations[i] = gasStations[i+1]
+                    gasStations[i+1] = stationTemp
+                }
             }
         }
         self.tableView.reloadData()
+
     }
     override func viewDidLayoutSubviews() {
         if moreInfoIsOpened {
@@ -269,6 +337,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let currentStation = gasStations[indexPath.row]
         mapViewGoogle.clear()
         let marker = GMSMarker()
