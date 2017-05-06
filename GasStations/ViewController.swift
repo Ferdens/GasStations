@@ -46,12 +46,11 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         let corner = UIView(frame: CGRect.init(x: 0, y: 0, width: 10, height: 10))
         corner.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/4))
         corner.backgroundColor = sortByRange.backgroundColor
-        smallCornerView = UIView(frame: CGRect.init(x: sortByRange.frame.midX, y: sortByRange.frame.maxY - 6, width: 10, height: 10))
+        smallCornerView = UIView(frame: CGRect.init(x: sortByRange.frame.midX, y: sortByRange.frame.maxY - 5, width: 10, height: 10))
         smallCornerView.backgroundColor = UIColor.clear
         smallCornerView.addSubview(corner)
         sortByRange.addSubview(smallCornerView)
         sortByRange.bringSubview(toFront: smallCornerView)
-        
     }
     
     //MARK: Drag stack
