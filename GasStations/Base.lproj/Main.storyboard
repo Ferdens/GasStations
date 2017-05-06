@@ -15,7 +15,7 @@
         <scene sceneID="krp-7c-ULz">
             <objects>
                 <navigationController id="95e-YU-4EV" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2uC-IR-aIw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2uC-IR-aIw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -54,9 +54,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qL-83-77Y">
                                         <rect key="frame" x="0.0" y="0.0" width="113" height="19"/>
                                         <state key="normal" image="Combined Shape2"/>
-                                        <connections>
-                                            <action selector="openMore:" destination="tXj-iC-QyY" eventType="touchUpInside" id="aLK-cP-pDe"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -105,7 +102,7 @@
                                 <rect key="frame" x="-4" y="598" width="383" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="ZrN-9m-REZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="ZrN-9m-REZ">
                                         <rect key="frame" x="0.0" y="1" width="383" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZrN-9m-REZ" id="3wf-XF-fCh">

@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     var defaultAboveTableViewFrame              : CGRect?
     var defaultSortViewFrame                    : CGRect?
     var moreInfoIsOpened                        = false
+    var touchBegan                              = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,12 @@ class ViewController: UIViewController {
         moreStationsinfoButton.layer.cornerRadius = 10
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
-        self.view.addGestureRecognizer(tapGesture)
+        self.mapView.addGestureRecognizer(tapGesture)
+
+        self.moreStationsinfoButton.becomeFirstResponder()
+        self.mapView.isUserInteractionEnabled = true
+        self.aboveTableView.isUserInteractionEnabled = true
+        self.moreStationsinfoButton.isUserInteractionEnabled = true
         
         
     }
@@ -179,6 +185,49 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: Touches
+
+extension ViewController {
+    override func viewDidLayoutSubviews() {
+        if moreInfoIsOpened {
+            tableViewBigerSize()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("began")
+        
+        let touch = touches.first
+        let pointInside = touch?.location(in: self.aboveTableView)
+        if  self.aboveTableView.point(inside: pointInside!, with: event) {
+            touchBegan = true
+        } else {
+            touchBegan = false
+        }
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("moved")
+        
+        let touch = touches.first
+        let pointInView = touch?.location(in: self.view)
+        let endY = (defaultAboveTableViewFrame?.origin.y)! - (70*3)
+        if touchBegan {
+            if (pointInView?.y)! < (defaultAboveTableViewFrame?.origin.y)! && (pointInView?.y)! > endY {
+                self.aboveTableView.frame.origin.y = (pointInView?.y)!
+                self.sortView.frame.origin.y       = (pointInView?.y)!
+            }
+            
+        }
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("ended")
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("cenceled")
+    }
+}
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
