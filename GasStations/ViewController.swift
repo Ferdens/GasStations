@@ -40,20 +40,15 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         defaultSortViewFrame         = sortView.frame
         setBarButtons()
         configurateMap()
-        aboveTableView.layer.cornerRadius = 10
-        aboveTableView.addShadow(opacity: 3, radius: 2)
-        moreStationsinfoButton.layer.cornerRadius = 10
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
-        self.mapView.addGestureRecognizer(tapGesture)
-
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         self.aboveTableView.addGestureRecognizer(gestureRecognizer)
         
-        
+        let corner = UIView(frame: CGRect.init(x: 0, y: 0, width: 10, height: 10))
+        corner.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/4))
+        corner.backgroundColor = sortByRange.backgroundColor
         smallCornerView = UIView(frame: CGRect.init(x: sortByRange.frame.midX, y: sortByRange.frame.maxY - 6, width: 10, height: 10))
-        smallCornerView.transform = CGAffineTransform.init(rotationAngle: 40)
-        smallCornerView.backgroundColor = sortByRange.backgroundColor
+        smallCornerView.backgroundColor = UIColor.clear
+        smallCornerView.addSubview(corner)
         sortByRange.addSubview(smallCornerView)
         sortByRange.bringSubview(toFront: smallCornerView)
         
@@ -129,6 +124,20 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             })
         }
     }
+    //MARK: GMSMapViewDelegate
+    
+    func configurateMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: 55.75, longitude: 37.62, zoom: 13.0)
+        mapViewGoogle = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
+        mapViewGoogle.isMyLocationEnabled = true
+        mapViewGoogle.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        self.mapViewGoogle.addGestureRecognizer(tapGesture)
+        mapView.addSubview(mapViewGoogle)
+    }
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        return UIView()
+    }
 
     //MARK: Display views
     override func viewWillAppear(_ animated: Bool) {
@@ -137,7 +146,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     }
     
     func setSearchView(){
-//        view.frame.height * 0.065
         let searchBarHeight : CGFloat = 45
         let searchBarView = UIView(frame: CGRect(x: self.view.bounds.width * 0.05, y: gradientView.frame.maxY - searchBarHeight/2, width: self.view.frame.width * 0.9, height:searchBarHeight ))
         searchBarView.backgroundColor = UIColor.white
@@ -150,17 +158,13 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         textField.textAlignment = .left
         textField.font = UIFont.italicSystemFont(ofSize: 14)
 
-        
         let buttonsHeight = searchBarView.bounds.height
         let leftButton = UIButton(frame: CGRect(x: view.bounds.width * 0.05, y: gradientView.frame.maxY - buttonsHeight/2 , width: view.bounds.width * 0.1, height:buttonsHeight))
-//        leftButton.backgroundColor = UIColor.yellow
         leftButton.imageView?.contentMode = UIViewContentMode.center
         leftButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
-//        leftButton.setImage(#imageLiteral(resourceName: "pinPressed"), for: .highlighted)
         
         let rightButtonHeight = searchBarView.bounds.height * 0.9
         let rightButton = UIButton(frame: CGRect(x: view.bounds.width * 0.83, y: gradientView.frame.maxY - rightButtonHeight/2 , width: view.bounds.width * 0.1, height:rightButtonHeight))
-
         rightButton.imageView?.contentMode = .center
         rightButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
 
@@ -170,30 +174,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         self.view.addSubview(textField)
     }
     
-    //MARK: Map configuration
-    
-    func configurateMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: 55.75, longitude: 37.62, zoom: 13.0)
-        mapViewGoogle = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
-        mapViewGoogle.isMyLocationEnabled = true
-        mapViewGoogle.delegate = self
-        mapView.addSubview(mapViewGoogle)
-        let marker = GMSMarker()
-        let pinView = PinView().loadFromNib() as! PinView
-        pinView.gasStationImageView.image = #imageLiteral(resourceName: "shellStation")
-        pinView.priceLabel.text           = "SDD"
-        pinView.streetNameLabel.text      = "FFFF"
-        marker.iconView = pinView
-        marker.position = CLLocationCoordinate2D(latitude: 55.75, longitude: 37.62)
-//        marker.map = mapViewGoogle
-//        mapViewGoogle.selectedMarker = marker
-        
-    }
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-       return UIView()
-    }
-
-
     func displayView(){
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -209,6 +189,10 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.45))
         gradientView.applyGradient(colors,[0.2,0.3,0.5,0.7,0.8,0.9,1])
         self.view.addSubview(gradientView)
+   
+        aboveTableView.layer.cornerRadius         = 10
+        aboveTableView.addShadow(opacity: 3, radius: 2)
+        moreStationsinfoButton.layer.cornerRadius = 10
     }
     
     func setBarButtons() {
@@ -231,7 +215,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     func profile() {
     }
     
-    //MARK:Sort
+    //MARK:Sort methods
     
     @IBAction func byRange(_ sender: UIButton) {
         sender.setTitleColor(UIColor.white, for: .normal)
@@ -239,7 +223,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         UIView.animate(withDuration: 0.4) {
             self.smallCornerView.frame.origin.x = self.sortByRange.frame.midX
         }
-        
         var stationTemp = Station()
         let count = gasStations.count - 1
         for i in 0..<count{
@@ -255,7 +238,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     @IBAction func byPrice(_ sender: UIButton) {
         sender.setTitleColor(UIColor.white, for: .normal)
         sortByRange.setTitleColor(UIColor.noActiveButton, for: .normal)
-        
         UIView.animate(withDuration: 0.4) {
             self.smallCornerView.frame.origin.x = self.sortByPrice.frame.midX
         }
@@ -277,13 +259,11 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     }
 }
 
-//MARK: Touches
 
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GasStationCell
         let currentStation = gasStations[indexPath.row]
-        
         cell.priceLabel.text    = String(currentStation.price)
         cell.streetName.text    = currentStation.streetName
         cell.distanseLabel.text = String(currentStation.distanseLength) + " км"
