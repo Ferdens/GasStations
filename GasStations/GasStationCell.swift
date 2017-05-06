@@ -10,6 +10,7 @@ import UIKit
 
 class GasStationCell: UITableViewCell {
 
+    @IBOutlet weak var distanseLabel: UILabel!
     @IBOutlet weak var streetName: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

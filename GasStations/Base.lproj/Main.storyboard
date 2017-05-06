@@ -15,7 +15,7 @@
         <scene sceneID="krp-7c-ULz">
             <objects>
                 <navigationController id="95e-YU-4EV" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2uC-IR-aIw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2uC-IR-aIw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -55,7 +55,7 @@
                                         <rect key="frame" x="0.0" y="1" width="383" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZrN-9m-REZ" id="3wf-XF-fCh">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iG-AG-kqz">
@@ -183,6 +183,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="distanseLabel" destination="GRJ-4y-CYZ" id="G8o-dx-cZX"/>
                                             <outlet property="priceLabel" destination="aeQ-TF-8VT" id="3dr-ae-AMc"/>
                                             <outlet property="streetName" destination="lBf-fB-LJN" id="z01-6L-typ"/>
                                             <outlet property="timeLabel" destination="EYH-0m-Sb3" id="hM1-OX-m6R"/>
@@ -213,16 +214,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MqL-LH-46o">
                                 <rect key="frame" x="0.0" y="552.5" width="375" height="53.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3h-oe-zwl">
-                                        <rect key="frame" x="0.0" y="0.0" width="188" height="53.5"/>
-                                        <color key="backgroundColor" red="0.21958878640000001" green="0.21961894630000001" blue="0.2195748985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="По расстоянию">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="byRange:" destination="tXj-iC-QyY" eventType="touchUpInside" id="27I-dS-jDm"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-7n-ShE">
                                         <rect key="frame" x="188" y="0.0" width="187" height="53.5"/>
                                         <color key="backgroundColor" red="0.21958878640000001" green="0.21961894630000001" blue="0.2195748985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -231,6 +222,16 @@
                                         </state>
                                         <connections>
                                             <action selector="byPrice:" destination="tXj-iC-QyY" eventType="touchUpInside" id="PjD-NQ-J0u"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3h-oe-zwl">
+                                        <rect key="frame" x="0.0" y="-0.5" width="188" height="53.5"/>
+                                        <color key="backgroundColor" red="0.21958878640000001" green="0.21961894630000001" blue="0.2195748985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="По расстоянию">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="byRange:" destination="tXj-iC-QyY" eventType="touchUpInside" id="27I-dS-jDm"/>
                                         </connections>
                                     </button>
                                 </subviews>

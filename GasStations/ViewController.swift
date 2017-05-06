@@ -231,7 +231,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     func profile() {
     }
     
-    //Sort
+    //MARK:Sort
     
     @IBAction func byRange(_ sender: UIButton) {
         sender.setTitleColor(UIColor.white, for: .normal)
@@ -240,6 +240,16 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             self.smallCornerView.frame.origin.x = self.sortByRange.frame.midX
         }
         
+        var stationTemp = Station()
+        let count = gasStations.count - 1
+        for i in 0..<count{
+            if gasStations[i].distanseLength > gasStations[i+1].distanseLength {
+                stationTemp = gasStations[i]
+                gasStations[i] = gasStations[i+1]
+                gasStations[i+1] = stationTemp
+            }
+        }
+        self.tableView.reloadData()
     }
     
     @IBAction func byPrice(_ sender: UIButton) {
@@ -249,6 +259,16 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         UIView.animate(withDuration: 0.4) {
             self.smallCornerView.frame.origin.x = self.sortByPrice.frame.midX
         }
+        var stationTemp = Station()
+        let count = gasStations.count - 1
+        for i in 0..<count{
+            if gasStations[i].price > gasStations[i+1].price {
+                stationTemp = gasStations[i]
+                gasStations[i] = gasStations[i+1]
+                gasStations[i+1] = stationTemp
+            }
+        }
+        self.tableView.reloadData()
     }
     override func viewDidLayoutSubviews() {
         if moreInfoIsOpened {
@@ -264,8 +284,9 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GasStationCell
         let currentStation = gasStations[indexPath.row]
         
-        cell.priceLabel.text = String(currentStation.price)
-        cell.streetName.text = currentStation.streetName
+        cell.priceLabel.text    = String(currentStation.price)
+        cell.streetName.text    = currentStation.streetName
+        cell.distanseLabel.text = String(currentStation.distanseLength) + " км"
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
