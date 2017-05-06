@@ -43,14 +43,14 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         self.aboveTableView.addGestureRecognizer(gestureRecognizer)
         
-        let corner = UIView(frame: CGRect.init(x: 0, y: 0, width: 10, height: 10))
-        corner.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/4))
-        corner.backgroundColor = sortByRange.backgroundColor
+        
+        
         smallCornerView = UIView(frame: CGRect.init(x: sortByRange.frame.midX, y: sortByRange.frame.maxY - 5, width: 10, height: 10))
-        smallCornerView.backgroundColor = UIColor.clear
-        smallCornerView.addSubview(corner)
+        smallCornerView.backgroundColor = sortByRange.backgroundColor
+        smallCornerView.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/4))
         sortByRange.addSubview(smallCornerView)
         sortByRange.bringSubview(toFront: smallCornerView)
+        
     }
     
     //MARK: Drag stack
@@ -220,7 +220,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         sender.setTitleColor(UIColor.white, for: .normal)
         sortByPrice.setTitleColor(UIColor.noActiveButton, for: .normal)
         UIView.animate(withDuration: 0.4) {
-            self.smallCornerView.frame.origin.x = self.sortByRange.frame.midX
+            self.smallCornerView.center = CGPoint(x: self.sortByRange.frame.midX, y: self.smallCornerView.center.y)
         }
         var stationTemp = Station()
         let count = gasStations.count - 1
@@ -238,7 +238,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         sender.setTitleColor(UIColor.white, for: .normal)
         sortByRange.setTitleColor(UIColor.noActiveButton, for: .normal)
         UIView.animate(withDuration: 0.4) {
-            self.smallCornerView.frame.origin.x = self.sortByPrice.frame.midX
+            self.smallCornerView.center = CGPoint(x: self.sortByPrice.frame.midX, y: self.smallCornerView.center.y)
         }
         var stationTemp = Station()
         let count = gasStations.count - 1
