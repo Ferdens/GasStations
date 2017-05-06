@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4629C4371EBE1128008881A3 /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4629C4361EBE1128008881A3 /* PinView.xib */; };
+		4629C4391EBE1E1C008881A3 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4629C4381EBE1E1C008881A3 /* PinView.swift */; };
 		463EB6D01EB8A9F000FC3D6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463EB6CF1EB8A9F000FC3D6D /* AppDelegate.swift */; };
 		463EB6D21EB8A9F000FC3D6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463EB6D11EB8A9F000FC3D6D /* ViewController.swift */; };
 		463EB6D51EB8A9F000FC3D6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463EB6D31EB8A9F000FC3D6D /* Main.storyboard */; };
@@ -14,6 +16,9 @@
 		463EB6DA1EB8A9F000FC3D6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463EB6D81EB8A9F000FC3D6D /* LaunchScreen.storyboard */; };
 		463EB6E21EB8AB5200FC3D6D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 463EB6E11EB8AB5200FC3D6D /* Podfile */; };
 		463EB6E41EB8C0FA00FC3D6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463EB6E31EB8C0FA00FC3D6D /* Extensions.swift */; };
+		464E04491EBE5B59007A42A2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E04481EBE5B59007A42A2 /* DataManager.swift */; };
+		464E044B1EBE5BB7007A42A2 /* GasStationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E044A1EBE5BB7007A42A2 /* GasStationInfo.swift */; };
+		464E044D1EBE5F36007A42A2 /* GasStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E044C1EBE5F36007A42A2 /* GasStationCell.swift */; };
 		466D32F31EBA5A8700D6F977 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466D32F21EBA5A8700D6F977 /* Text.swift */; };
 		C7115760313554FED8C8D6E4 /* Pods_GasStations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F52223EF3BF2E34A6427478 /* Pods_GasStations.framework */; };
 /* End PBXBuildFile section */
@@ -21,6 +26,8 @@
 /* Begin PBXFileReference section */
 		0F52223EF3BF2E34A6427478 /* Pods_GasStations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GasStations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B9E2AC3CADA10225E0E827 /* Pods-GasStations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasStations.release.xcconfig"; path = "Pods/Target Support Files/Pods-GasStations/Pods-GasStations.release.xcconfig"; sourceTree = "<group>"; };
+		4629C4361EBE1128008881A3 /* PinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
+		4629C4381EBE1E1C008881A3 /* PinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		463EB6CC1EB8A9F000FC3D6D /* GasStations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasStations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		463EB6CF1EB8A9F000FC3D6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		463EB6D11EB8A9F000FC3D6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +37,9 @@
 		463EB6DB1EB8A9F000FC3D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463EB6E11EB8AB5200FC3D6D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		463EB6E31EB8C0FA00FC3D6D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		464E04481EBE5B59007A42A2 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		464E044A1EBE5BB7007A42A2 /* GasStationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationInfo.swift; sourceTree = "<group>"; };
+		464E044C1EBE5F36007A42A2 /* GasStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationCell.swift; sourceTree = "<group>"; };
 		466D32F21EBA5A8700D6F977 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		5196CC6D04E0BAFD4FF7CFDF /* Pods-GasStations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GasStations.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GasStations/Pods-GasStations.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +65,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4629C43A1EBE1E21008881A3 /* CustomPin */ = {
+			isa = PBXGroup;
+			children = (
+				4629C4361EBE1128008881A3 /* PinView.xib */,
+				4629C4381EBE1E1C008881A3 /* PinView.swift */,
+			);
+			name = CustomPin;
+			sourceTree = "<group>";
+		};
 		463EB6C31EB8A9F000FC3D6D = {
 			isa = PBXGroup;
 			children = (
@@ -77,14 +96,18 @@
 		463EB6CE1EB8A9F000FC3D6D /* GasStations */ = {
 			isa = PBXGroup;
 			children = (
+				4629C43A1EBE1E21008881A3 /* CustomPin */,
 				463EB6CF1EB8A9F000FC3D6D /* AppDelegate.swift */,
 				466D32F21EBA5A8700D6F977 /* Text.swift */,
 				463EB6E31EB8C0FA00FC3D6D /* Extensions.swift */,
 				463EB6D11EB8A9F000FC3D6D /* ViewController.swift */,
 				463EB6D31EB8A9F000FC3D6D /* Main.storyboard */,
+				464E044C1EBE5F36007A42A2 /* GasStationCell.swift */,
 				463EB6D61EB8A9F000FC3D6D /* Assets.xcassets */,
 				463EB6D81EB8A9F000FC3D6D /* LaunchScreen.storyboard */,
 				463EB6DB1EB8A9F000FC3D6D /* Info.plist */,
+				464E04481EBE5B59007A42A2 /* DataManager.swift */,
+				464E044A1EBE5BB7007A42A2 /* GasStationInfo.swift */,
 			);
 			path = GasStations;
 			sourceTree = "<group>";
@@ -160,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4629C4371EBE1128008881A3 /* PinView.xib in Resources */,
 				463EB6DA1EB8A9F000FC3D6D /* LaunchScreen.storyboard in Resources */,
 				463EB6D71EB8A9F000FC3D6D /* Assets.xcassets in Resources */,
 				463EB6E21EB8AB5200FC3D6D /* Podfile in Resources */,
@@ -222,7 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4629C4391EBE1E1C008881A3 /* PinView.swift in Sources */,
+				464E044B1EBE5BB7007A42A2 /* GasStationInfo.swift in Sources */,
+				464E04491EBE5B59007A42A2 /* DataManager.swift in Sources */,
 				463EB6D21EB8A9F000FC3D6D /* ViewController.swift in Sources */,
+				464E044D1EBE5F36007A42A2 /* GasStationCell.swift in Sources */,
 				463EB6E41EB8C0FA00FC3D6D /* Extensions.swift in Sources */,
 				466D32F31EBA5A8700D6F977 /* Text.swift in Sources */,
 				463EB6D01EB8A9F000FC3D6D /* AppDelegate.swift in Sources */,

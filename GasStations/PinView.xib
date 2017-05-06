@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="RzT-dH-2IW" customClass="PinView" customModule="GasStations" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shape" translatesAutoresizingMaskIntoConstraints="NO" id="r76-Nu-aC1">
+                    <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okn-hR-rdq">
+                    <rect key="frame" x="30" y="0.0" width="160" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sadovnichffff" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPi-LL-k5X">
+                            <rect key="frame" x="5" y="3" width="94" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35.5 р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETt-Lb-Tzs">
+                            <rect key="frame" x="5" y="15" width="94" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F45-F8-Wep">
+                            <rect key="frame" x="104" y="3" width="21" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="bTO-la-Q6f"/>
+                            </constraints>
+                            <state key="normal" image="like"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwU-ez-6Bo">
+                            <rect key="frame" x="135" y="3" width="17" height="28"/>
+                            <state key="normal" image="direction"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wPi-LL-k5X" firstAttribute="top" secondItem="okn-hR-rdq" secondAttribute="top" constant="3" id="0SR-pt-Hsh"/>
+                        <constraint firstItem="F45-F8-Wep" firstAttribute="top" secondItem="JwU-ez-6Bo" secondAttribute="top" id="B1A-fI-vV7"/>
+                        <constraint firstAttribute="bottom" secondItem="ETt-Lb-Tzs" secondAttribute="bottom" constant="9" id="C4W-qV-Tmy"/>
+                        <constraint firstAttribute="trailing" secondItem="ETt-Lb-Tzs" secondAttribute="trailing" constant="61" id="IpJ-oC-UYf"/>
+                        <constraint firstItem="wPi-LL-k5X" firstAttribute="leading" secondItem="ETt-Lb-Tzs" secondAttribute="leading" id="Jxi-S6-Ykv"/>
+                        <constraint firstItem="ETt-Lb-Tzs" firstAttribute="top" secondItem="wPi-LL-k5X" secondAttribute="bottom" id="Rvc-si-0he"/>
+                        <constraint firstItem="F45-F8-Wep" firstAttribute="baseline" secondItem="JwU-ez-6Bo" secondAttribute="baseline" id="cga-ss-53t"/>
+                        <constraint firstItem="F45-F8-Wep" firstAttribute="leading" secondItem="ETt-Lb-Tzs" secondAttribute="trailing" constant="5" id="eOb-D9-2pD"/>
+                        <constraint firstItem="JwU-ez-6Bo" firstAttribute="leading" secondItem="F45-F8-Wep" secondAttribute="trailing" constant="10" id="h0P-pV-0rT"/>
+                        <constraint firstItem="wPi-LL-k5X" firstAttribute="trailing" secondItem="ETt-Lb-Tzs" secondAttribute="trailing" id="nmL-lz-YfE"/>
+                        <constraint firstItem="JwU-ez-6Bo" firstAttribute="top" secondItem="okn-hR-rdq" secondAttribute="top" constant="3" id="oYH-Fj-SmW"/>
+                        <constraint firstItem="ETt-Lb-Tzs" firstAttribute="leading" secondItem="okn-hR-rdq" secondAttribute="leading" constant="5" id="qxh-nS-j3L"/>
+                        <constraint firstAttribute="bottom" secondItem="JwU-ez-6Bo" secondAttribute="bottom" constant="9" id="t61-gD-lGw"/>
+                        <constraint firstAttribute="trailing" secondItem="JwU-ez-6Bo" secondAttribute="trailing" constant="8" id="um2-td-cqX"/>
+                        <constraint firstItem="F45-F8-Wep" firstAttribute="firstBaseline" secondItem="JwU-ez-6Bo" secondAttribute="firstBaseline" id="wnn-Lr-1Tr"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6z-CU-vhm">
+                    <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shellStation" translatesAutoresizingMaskIntoConstraints="NO" id="xgb-HU-2Rn">
+                            <rect key="frame" x="9" y="10" width="12" height="11"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="xgb-HU-2Rn" secondAttribute="trailing" constant="9" id="0Kt-Y4-gAc"/>
+                        <constraint firstItem="xgb-HU-2Rn" firstAttribute="leading" secondItem="b6z-CU-vhm" secondAttribute="leading" constant="9" id="QQC-e0-85F"/>
+                        <constraint firstAttribute="bottom" secondItem="xgb-HU-2Rn" secondAttribute="bottom" constant="19" id="YhL-Nm-u2d"/>
+                        <constraint firstItem="xgb-HU-2Rn" firstAttribute="top" secondItem="b6z-CU-vhm" secondAttribute="top" constant="10" id="rwk-k0-LDc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="okn-hR-rdq" secondAttribute="bottom" id="1WS-2K-cjx"/>
+                <constraint firstItem="okn-hR-rdq" firstAttribute="leading" secondItem="b6z-CU-vhm" secondAttribute="trailing" id="4iP-lh-Pnt"/>
+                <constraint firstItem="b6z-CU-vhm" firstAttribute="top" secondItem="okn-hR-rdq" secondAttribute="top" id="CXa-2Y-TEu"/>
+                <constraint firstItem="b6z-CU-vhm" firstAttribute="bottom" secondItem="okn-hR-rdq" secondAttribute="bottom" id="Ce6-x3-1xe"/>
+                <constraint firstItem="r76-Nu-aC1" firstAttribute="top" secondItem="RzT-dH-2IW" secondAttribute="top" id="FNQ-Su-ETT"/>
+                <constraint firstItem="b6z-CU-vhm" firstAttribute="leading" secondItem="RzT-dH-2IW" secondAttribute="leading" id="WIE-Xd-Tsp"/>
+                <constraint firstAttribute="bottom" secondItem="r76-Nu-aC1" secondAttribute="bottom" id="XeX-fM-Hcv"/>
+                <constraint firstAttribute="trailing" secondItem="okn-hR-rdq" secondAttribute="trailing" id="Y90-vd-TzZ"/>
+                <constraint firstItem="okn-hR-rdq" firstAttribute="leading" secondItem="RzT-dH-2IW" secondAttribute="leading" constant="30" id="ZXY-75-ivW"/>
+                <constraint firstAttribute="trailing" secondItem="r76-Nu-aC1" secondAttribute="trailing" id="jSf-CV-hoT"/>
+                <constraint firstItem="r76-Nu-aC1" firstAttribute="leading" secondItem="RzT-dH-2IW" secondAttribute="leading" id="reO-4n-5nD"/>
+                <constraint firstItem="okn-hR-rdq" firstAttribute="top" secondItem="RzT-dH-2IW" secondAttribute="top" id="sRp-0W-csg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gasStationImageView" destination="xgb-HU-2Rn" id="wly-QV-JhD"/>
+                <outlet property="priceLabel" destination="ETt-Lb-Tzs" id="llQ-aQ-zCc"/>
+                <outlet property="streetNameLabel" destination="wPi-LL-k5X" id="gvQ-fl-o3V"/>
+            </connections>
+            <point key="canvasLocation" x="35" y="55"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Shape" width="198" height="34"/>
+        <image name="direction" width="15" height="15"/>
+        <image name="like" width="16" height="15"/>
+        <image name="shellStation" width="16" height="16"/>
+    </resources>
+</document>
