@@ -96,20 +96,28 @@
 		463EB6CE1EB8A9F000FC3D6D /* GasStations */ = {
 			isa = PBXGroup;
 			children = (
-				4629C43A1EBE1E21008881A3 /* CustomPin */,
 				463EB6CF1EB8A9F000FC3D6D /* AppDelegate.swift */,
-				466D32F21EBA5A8700D6F977 /* Text.swift */,
-				463EB6E31EB8C0FA00FC3D6D /* Extensions.swift */,
-				463EB6D11EB8A9F000FC3D6D /* ViewController.swift */,
-				463EB6D31EB8A9F000FC3D6D /* Main.storyboard */,
-				464E044C1EBE5F36007A42A2 /* GasStationCell.swift */,
-				463EB6D61EB8A9F000FC3D6D /* Assets.xcassets */,
-				463EB6D81EB8A9F000FC3D6D /* LaunchScreen.storyboard */,
-				463EB6DB1EB8A9F000FC3D6D /* Info.plist */,
 				464E04481EBE5B59007A42A2 /* DataManager.swift */,
 				464E044A1EBE5BB7007A42A2 /* GasStationInfo.swift */,
+				463EB6E31EB8C0FA00FC3D6D /* Extensions.swift */,
+				466D32F21EBA5A8700D6F977 /* Text.swift */,
+				463EB6D11EB8A9F000FC3D6D /* ViewController.swift */,
+				464E044E1EBE7D08007A42A2 /* View */,
+				4629C43A1EBE1E21008881A3 /* CustomPin */,
+				463EB6D31EB8A9F000FC3D6D /* Main.storyboard */,
+				463EB6D81EB8A9F000FC3D6D /* LaunchScreen.storyboard */,
+				463EB6D61EB8A9F000FC3D6D /* Assets.xcassets */,
+				463EB6DB1EB8A9F000FC3D6D /* Info.plist */,
 			);
 			path = GasStations;
+			sourceTree = "<group>";
+		};
+		464E044E1EBE7D08007A42A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				464E044C1EBE5F36007A42A2 /* GasStationCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		51B4A2E5999C4B8AB8F37043 /* Frameworks */ = {
