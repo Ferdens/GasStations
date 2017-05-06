@@ -259,7 +259,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
 
 //MARK: Touches
 
-
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GasStationCell
@@ -270,10 +269,8 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-          let currentStation = gasStations[indexPath.row]
+        let currentStation = gasStations[indexPath.row]
         mapViewGoogle.clear()
-        
         let marker = GMSMarker()
         let pinView = PinView().loadFromNib() as! PinView
         pinView.gasStationImageView.image = #imageLiteral(resourceName: "shellStation")
@@ -284,8 +281,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         marker.appearAnimation = .pop
         marker.map = mapViewGoogle
         mapViewGoogle.selectedMarker = marker
-        mapViewGoogle.camera = GMSCameraPosition.camera(withLatitude: currentStation.latitude, longitude: currentStation.longitude, zoom: 12)
-        
+        mapViewGoogle.camera = GMSCameraPosition.camera(withLatitude: currentStation.latitude, longitude: currentStation.longitude, zoom: 14)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gasStations.count
