@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Combined Shape2.pdf",
+      "filename" : "P.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Combined Shape2-1.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Combined Shape2-2.pdf",
       "scale" : "3x"
     }
   ],

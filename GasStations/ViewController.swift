@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 
 private let slideConstant : CGFloat = 60*3
-class ViewController: UIViewController, GMSMapViewDelegate {
+class ViewController: UIViewController {
     
     var gradientView = UIView()
     
@@ -31,19 +31,35 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     var mapViewGoogle                           : GMSMapView!
     var moreInfoIsOpened                        = false
     var smallCornerView                         : UIView!
+    var rectTaken                               = false
     
     var gasStations = DataManager.shared.gasStations
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaultTableViewFrame        = tableView.frame
-        defaultAboveTableViewFrame   = aboveTableView.frame
-        defaultSortViewFrame         = sortView.frame
         setBarButtons()
         configurateMap()
-        
-        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
-        //        self.view.addGestureRecognizer(tapGesture)
-        
+        dysplayCornerView()
+        addSwipeGestures()
+    }
+    override func viewDidLayoutSubviews() {
+        if !rectTaken {
+            defaultTableViewFrame        = tableView.frame
+            defaultAboveTableViewFrame   = aboveTableView.frame
+            defaultSortViewFrame         = sortView.frame
+            rectTaken = true
+            
+        }
+        if moreInfoIsOpened {
+            tableViewBigerSize(false)
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        displayView()
+        setSearchView()
+    }
+    
+    
+    func addSwipeGestures() {
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         self.aboveTableView.addGestureRecognizer(gestureRecognizer)
         
@@ -54,7 +70,8 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.sortView.addGestureRecognizer(swipeLeft)
-        
+    }
+    func dysplayCornerView() {
         smallCornerView = UIView(frame: CGRect.init(x: sortByRange.frame.midX, y: sortByRange.frame.maxY - 5, width: 10, height: 10))
         smallCornerView.backgroundColor = sortByRange.backgroundColor
         smallCornerView.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/4))
@@ -75,11 +92,10 @@ class ViewController: UIViewController, GMSMapViewDelegate {
 
             }
         }
+        
         if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
             
             let translation = gestureRecognizer.translation(in: self.view)
-            // note: 'view' is optional and need to be unwrapped
-            
             if (gestureRecognizer.view!.frame.origin.y + translation.y) > (self.defaultAboveTableViewFrame?.origin.y)! {
                 tableViewDefaultSize(false)
             }
@@ -99,6 +115,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             self.currentAboveTableViewFrame = self.aboveTableView.frame
         }
     }
+    
     func tableViewBigerSize(_ animated: Bool) {
         if !animated {
         self.aboveTableView.frame.origin.y = (self.defaultAboveTableViewFrame?.origin.y)! - slideConstant
@@ -113,10 +130,9 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             }, completion: { (success) in
                 self.moreInfoIsOpened = true
             })
-
         }
-        
     }
+    
     func tableViewDefaultSize(_ animated: Bool){
         if !animated {
         self.aboveTableView.frame         = self.defaultAboveTableViewFrame!
@@ -133,8 +149,8 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             })
         }
     }
-    //MARK: GMSMapViewDelegate
     
+    //MARK: Configurate views
     func configurateMap() {
         let camera = GMSCameraPosition.camera(withLatitude: 55.75, longitude: 37.62, zoom: 13.0)
         mapViewGoogle = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
@@ -142,39 +158,25 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         mapViewGoogle.delegate = self
         mapView.addSubview(mapViewGoogle)
     }
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        return UIView()
-    }
-
-    //MARK: Display views
-    override func viewWillAppear(_ animated: Bool) {
-        displayView()
-        setSearchView()
-    }
-    
     func setSearchView(){
         let searchBarHeight : CGFloat = 45
         let searchBarView = UIView(frame: CGRect(x: self.view.bounds.width * 0.05, y: gradientView.frame.maxY - searchBarHeight/2, width: self.view.frame.width * 0.9, height:searchBarHeight ))
         searchBarView.backgroundColor = UIColor.white
         searchBarView.layer.cornerRadius = 4
         searchBarView.addShadow(opacity: 1, radius: 1)
-        
-        //TEXTFIELD
         let textField = UITextField(frame: CGRect(x: view.bounds.width * 0.2, y: gradientView.frame.maxY - searchBarHeight/2, width: view.bounds.width * 0.6, height: searchBarView.bounds.height))
         textField.placeholder = gasSearchTextPlaceHolder
         textField.textAlignment = .left
+        textField.delegate = self
         textField.font = UIFont.italicSystemFont(ofSize: 14)
-
         let buttonsHeight = searchBarView.bounds.height
-        let leftButton = UIButton(frame: CGRect(x: view.bounds.width * 0.05, y: gradientView.frame.maxY - buttonsHeight/2 , width: view.bounds.width * 0.1, height:buttonsHeight))
+        let leftButton = UIButton(frame: CGRect(x: view.bounds.width * 0.05, y: gradientView.frame.maxY - buttonsHeight/2 , width: view.bounds.width * 0.111, height:buttonsHeight))
         leftButton.imageView?.contentMode = UIViewContentMode.center
         leftButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
-        
         let rightButtonHeight = searchBarView.bounds.height * 0.9
         let rightButton = UIButton(frame: CGRect(x: view.bounds.width * 0.83, y: gradientView.frame.maxY - rightButtonHeight/2 , width: view.bounds.width * 0.1, height:rightButtonHeight))
         rightButton.imageView?.contentMode = .center
         rightButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
-
         self.view.addSubview(searchBarView)
         self.view.addSubview(leftButton)
         self.view.addSubview(rightButton)
@@ -196,12 +198,12 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.45))
         gradientView.applyGradient(colors,[0.2,0.3,0.5,0.7,0.8,0.9,1])
         self.view.addSubview(gradientView)
-   
         aboveTableView.layer.cornerRadius         = 10
         aboveTableView.addShadow(opacity: 3, radius: 2)
         moreStationsinfoButton.layer.cornerRadius = 10
     }
     
+    //MARK: Swipe control
     func respondToSwipeGesture(gesture: UIGestureRecognizer)
     {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer
@@ -209,7 +211,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             switch swipeGesture.direction
             {
             case UISwipeGestureRecognizerDirection.right:
-                //write your logic for right swipe
                 sortByPrice.setTitleColor(UIColor.white, for: .normal)
                 sortByRange.setTitleColor(UIColor.noActiveButton, for: .normal)
                 UIView.animate(withDuration: 0.4) {
@@ -227,9 +228,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
                     }
                 }
                 self.tableView.reloadData()
-                
             case UISwipeGestureRecognizerDirection.left:
-                //write your logic for left swipe
                 sortByRange.setTitleColor(UIColor.white, for: .normal)
                 sortByPrice.setTitleColor(UIColor.noActiveButton, for: .normal)
                 UIView.animate(withDuration: 0.4) {
@@ -246,15 +245,12 @@ class ViewController: UIViewController, GMSMapViewDelegate {
                         }
                     }
                 }
-                
                 self.tableView.reloadData()
-                
             default:
                 break
             }
         }
     }
-    
     func setBarButtons() {
         let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settings))
         settingsButton.tintColor = UIColor.init(red: 0, green: 137/255, blue: 178/255, alpha: 1)
@@ -294,9 +290,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
                 }
             }
         }
-        
         self.tableView.reloadData()
-
            }
     
     @IBAction func byPrice(_ sender: UIButton) {
@@ -319,13 +313,10 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         self.tableView.reloadData()
 
     }
-    override func viewDidLayoutSubviews() {
-        if moreInfoIsOpened {
-            tableViewBigerSize(false)
-        }
-    }
+
 }
 
+//MARK: UITableViewDelegate
 
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -355,5 +346,23 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gasStations.count
     }
+}
+
+//MARK: UITextFieldDelegate
+
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            view.endEditing(true)
+        return true
+    }
+}
+
+//MARK: GMSMapViewDelegate
+
+extension ViewController: GMSMapViewDelegate  {
+func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+    return UIView()
+}
 }
 

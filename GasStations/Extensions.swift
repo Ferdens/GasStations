@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 
-
 extension UIView {
     func applyGradient(_ colors: [UIColor],_ locations: [NSNumber]) {
         let gradient = CAGradientLayer()
