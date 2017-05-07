@@ -169,13 +169,9 @@ class ViewController: UIViewController {
         textField.textAlignment = .left
         textField.delegate = self
         textField.font = UIFont.italicSystemFont(ofSize: 14)
-        let buttonsHeight = searchBarView.bounds.height
-        let leftButton = UIButton(frame: CGRect(x: view.bounds.width * 0.05, y: gradientView.frame.maxY - buttonsHeight/2 , width: view.bounds.width * 0.111, height:buttonsHeight))
-        leftButton.imageView?.contentMode = UIViewContentMode.center
+        let leftButton = UIButton(frame: CGRect(x: view.bounds.width * 0.078, y: gradientView.frame.maxY - 10 , width: 13, height:20))
         leftButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
-        let rightButtonHeight = searchBarView.bounds.height * 0.9
-        let rightButton = UIButton(frame: CGRect(x: view.bounds.width * 0.83, y: gradientView.frame.maxY - rightButtonHeight/2 , width: view.bounds.width * 0.1, height:rightButtonHeight))
-        rightButton.imageView?.contentMode = .center
+        let rightButton = UIButton(frame: CGRect(x: view.bounds.width * 0.856, y: gradientView.frame.maxY - 10 , width: 20, height:20))
         rightButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
         self.view.addSubview(searchBarView)
         self.view.addSubview(leftButton)
@@ -187,17 +183,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        gradientView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height * 0.128)
-        var colors = [UIColor]()
-        colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.95))
-        colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.95))
-        colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.85))
-        colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.75))
-        colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.65))
-        colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.55))
-        colors.append(UIColor(red: 19/255, green: 51/255, blue: 64/255, alpha: 0.45))
-        gradientView.applyGradient(colors,[0.2,0.3,0.5,0.7,0.8,0.9,1])
-        self.view.addSubview(gradientView)
+        gradientView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height * 0.134)
         aboveTableView.layer.cornerRadius         = 10
         aboveTableView.addShadow(opacity: 3, radius: 2)
         moreStationsinfoButton.layer.cornerRadius = 10
